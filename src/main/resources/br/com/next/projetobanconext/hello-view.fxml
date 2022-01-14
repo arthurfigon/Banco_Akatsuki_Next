@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+   <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" text="Insira seu Login:" />
+   <TextField fx:id="campoLogin" maxHeight="120.0" maxWidth="120.0" onInputMethodTextChanged="#checkInvalid" />
+   <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" text="Insira sua Senha:" />
+        <TextField fx:id="campoSenha" maxHeight="120.0" maxWidth="120.0" />
+        <Button onAction="#leOqueTaEscrito" text="Login" />
+   <Button fx:id="btRegistrar" mnemonicParsing="false" onAction="#onBtRegistrarAction" text="Registrar" />
+   <Label />
+        <Label fx:id="menu3" text="" />
+   <Label fx:id="resultado" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" text="" textAlignment="CENTER" textFill="#25dd00" />
+
+</VBox>
