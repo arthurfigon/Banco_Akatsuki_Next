@@ -25,6 +25,10 @@ public class ContaBO{
         cadastrarConta(senha,cliente,tipoConta);
     }
 
+    public ContaBO(Conta conta) {
+        this.conta = conta;
+    }
+
     public String consultarConta(){
         return "Id: "+conta.getIdConta()+"\nCPF: "+conta.getCliente().getCpf()+"\nNome: "+conta.getCliente().getNome()+
                 "\nNumero da Conta: "+conta.getNumero()+"\nSaldo: R$ "+conta.getSaldo()+ "\nTipo do Cliente: "+conta.getCliente().getTipo();
@@ -106,6 +110,7 @@ public class ContaBO{
         }else{
             conta.setTaxa(0.0003);
         }
+        BancoDeDados.insereConta(this.conta);
     }
 
     private String setNumeroRandom(){
@@ -163,5 +168,12 @@ public class ContaBO{
                 conta.setDataTaxa(dataAplicacaoTaxa);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + conta.getCliente().getNome()+
+                " CPF: " + conta.getCliente().getCpf() +
+                " Conta: " + conta.getTipoConta().name();
     }
 }

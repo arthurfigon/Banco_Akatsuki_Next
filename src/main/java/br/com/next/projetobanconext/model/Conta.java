@@ -94,4 +94,11 @@ public class Conta{
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + getCliente().getNome()+
+                " CPF: " + getCliente().getCpf() +
+                " Conta: " + getTipoConta().name();
+    }
 }
