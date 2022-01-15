@@ -17,7 +17,7 @@ import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class InicialController implements Initializable {
 
     public CheckBox cbContaCorrente;
     public CheckBox cbContaPoupanca;
@@ -32,6 +32,7 @@ public class Controller implements Initializable {
 
     @FXML
     protected void onBtRegistrarAction(){
+        resultado.setText("");
         Application.changeScene("registrar");
     }
 
@@ -55,7 +56,8 @@ public class Controller implements Initializable {
             return;
         }
         if(conta.getCliente().getCpf().equals(campoLogin.getText()) && conta.getSenha().equals(campoSenha.getText())){
-            System.out.println("Certo!");
+            Application.setConta(conta);
+            resultado.setText("");
             Application.changeScene("transferencia");
         }else{
             recusado();

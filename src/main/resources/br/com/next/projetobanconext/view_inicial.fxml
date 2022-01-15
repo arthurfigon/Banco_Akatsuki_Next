@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="180.0" prefWidth="480.0" style="-fx-background-color: linear-gradient(to top, #a2a2a2, #494949); -fx-border-color: white; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.InicialController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+   <Label alignment="TOP_LEFT" layoutX="29.0" layoutY="40.0" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" text="CPF:" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold Italic" size="20.0" />
+      </font></Label>
+   <TextField fx:id="campoLogin" layoutX="102.0" layoutY="39.0" maxHeight="120.0" maxWidth="120.0" />
+   <Label alignment="TOP_LEFT" layoutX="29.0" layoutY="74.0" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" text="Senha:" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold Italic" size="20.0" />
+      </font></Label>
+        <TextField fx:id="campoSenha" layoutX="102.0" layoutY="73.0" maxHeight="120.0" maxWidth="120.0" />
+   <CheckBox fx:id="cbContaCorrente" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="27.0" layoutY="153.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="  Corrente" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold Italic" size="20.0" />
+      </font></CheckBox>
+   <CheckBox fx:id="cbContaPoupanca" layoutX="26.0" layoutY="112.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Poupança" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold Italic" size="20.0" />
+      </font></CheckBox>
+   <ImageView fx:id="btLoginDois" fitHeight="55.0" fitWidth="150.0" layoutX="257.0" layoutY="42.0" onMouseClicked="#onBtLoginAction" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@images/Login2.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="btRegistrarDois" fitHeight="54.0" fitWidth="150.0" layoutX="257.0" layoutY="126.0" onMouseClicked="#onBtRegistrarAction" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@images/Regristrar2.png" />
+      </image>
+   </ImageView>
+   <Label fx:id="resultado" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="26.0" layoutY="217.0" prefHeight="23.0" prefWidth="204.0" snapToPixel="false" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold Italic" size="20.0" />
+      </font></Label>
+
+</AnchorPane>

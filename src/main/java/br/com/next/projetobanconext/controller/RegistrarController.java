@@ -6,6 +6,7 @@ import br.com.next.projetobanconext.model.ContaBO;
 import br.com.next.projetobanconext.model.Endereco;
 import br.com.next.projetobanconext.model.TipoConta;
 import br.com.next.projetobanconext.utils.Alerts;
+import br.com.next.projetobanconext.utils.BancoDeDados;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -59,10 +60,20 @@ public class RegistrarController implements Initializable {
                 return;
             }
             if (cbContaCorrente.isSelected()){
-                ContaBO contaBO = new ContaBO(textSenha.getText(), clienteBO.getCliente(), TipoConta.CORRENTE);
+                if(BancoDeDados.findContaByCPF(textCPF.getText(), TipoConta.CORRENTE) == null) {
+                    ContaBO contaBO = new ContaBO(textSenha.getText(), clienteBO.getCliente(), TipoConta.CORRENTE);
+                }else{
+                    Alerts.showAlertError("CPF já cadastrado", null, "Esse CPF já foi cadastrado para Corrente...");
+                    return;
+                }
             }
             if(cbContaPoupança.isSelected()){
-                ContaBO contaBO = new ContaBO(textSenha.getText(), clienteBO.getCliente(), TipoConta.POUPANÇA);
+                if(BancoDeDados.findContaByCPF(textCPF.getText(), TipoConta.POUPANÇA) == null) {
+                    ContaBO contaBO = new ContaBO(textSenha.getText(), clienteBO.getCliente(), TipoConta.POUPANÇA);
+                }else{
+                    Alerts.showAlertError("CPF já cadastrado", null, "Esse CPF já foi cadastrado para Poupança...");
+                    return;
+                }
             }
             if (!cbContaCorrente.isSelected() && !cbContaPoupança.isSelected()){
                 Alerts.showAlertError("Nenhuma Conta Selecionada", "Nenhuma Conta Selecionada", "Favor selecionar o tipo de Conta...");
@@ -93,6 +104,7 @@ public class RegistrarController implements Initializable {
 
     @FXML
     public void onBtVoltarAction(){
+        limpaCampos();
         Application.changeScene("main");
     }
 

@@ -18,11 +18,9 @@ public class BancoDeDados {
 
         ClienteBO clienteBO1 = new ClienteBO("11111111111", "Gabriela", data, endereco);
         Conta contaBO = new ContaBO("1234567", clienteBO1.getCliente(), TipoConta.CORRENTE).getConta();
-        insereConta(contaBO);
 
         ClienteBO clienteBO2 = new ClienteBO("22222222222", "Gabriel", data, endereco);
         Conta contaBO2 = new ContaBO("1234567", clienteBO2.getCliente(), TipoConta.POUPANÇA).getConta();
-        insereConta(contaBO2);
     }
 
     public static long getContasCriadas() {
