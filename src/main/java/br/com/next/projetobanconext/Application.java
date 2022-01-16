@@ -4,6 +4,7 @@ import br.com.next.projetobanconext.model.*;
 import br.com.next.projetobanconext.utils.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;

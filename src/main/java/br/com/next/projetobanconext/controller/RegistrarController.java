@@ -7,6 +7,7 @@ import br.com.next.projetobanconext.model.Endereco;
 import br.com.next.projetobanconext.model.TipoConta;
 import br.com.next.projetobanconext.utils.Alerts;
 import br.com.next.projetobanconext.utils.BancoDeDados;
+import br.com.next.projetobanconext.utils.Constraints;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -111,6 +112,11 @@ public class RegistrarController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Constraints.setTextFieldLetters(textNome);
+        Constraints.setTextFieldInteger(textCPF);
+        Constraints.setTextFieldMaxLength(textCPF,11);
+        Constraints.setTextFieldMaxLength(textSenha, 16);
+        Constraints.setTextFieldDate(textNascimento);
+        Constraints.setTextFieldMaxLength(textNascimento,10);
     }
 }

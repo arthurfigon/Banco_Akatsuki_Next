@@ -7,7 +7,9 @@ public class Constraints {
  // [^[a-z][A-Z]*] só letras
     public static void setTextFieldInteger(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-            if(newValue != null && !(newValue.matches("[0-9]++"))){
+            if(newValue.matches("")){
+
+            }else if(newValue != null && !(newValue.matches("[0-9]*"))){
                 txt.setText(oldValue);
             }
         });
@@ -23,7 +25,29 @@ public class Constraints {
 
     public static void setTextFieldDouble(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-            if(newValue != null && !(newValue.matches("\\d++([.]{1}){0,1}(\\d++){0,1}"))){
+            if(newValue.matches("")){
+
+            }else if(newValue != null && !(newValue.matches("\\d++([.]{1}){0,1}(\\d++){0,1}"))){
+                txt.setText(oldValue);
+            }
+        });
+    }
+
+    public static void setTextFieldLetters(TextField txt){
+        txt.textProperty().addListener((obs, oldValue, newValue) -> {
+            if(newValue.matches("")){
+
+            }else if(newValue != null && !(newValue.matches("[a-zA-Z]*"))){
+                txt.setText(oldValue);
+            }
+        });
+    }
+
+    public static void setTextFieldDate(TextField txt){
+        txt.textProperty().addListener((obs, oldValue, newValue) -> {
+            if(newValue.matches("")){
+
+            }else if(newValue != null && !(newValue.matches("\\d{1,2}([\\\\/]{1}){0,1}([\\d]){0,2}([\\\\/]{1}){0,1}([\\d]){0,4}"))){
                 txt.setText(oldValue);
             }
         });

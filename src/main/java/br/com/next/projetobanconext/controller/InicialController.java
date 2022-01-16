@@ -19,8 +19,7 @@ import java.util.ResourceBundle;
 
 public class InicialController implements Initializable {
 
-    public CheckBox cbContaCorrente;
-    public CheckBox cbContaPoupanca;
+    public Label cpf;
     @FXML
     private TextField campoSenha;
     @FXML
@@ -37,22 +36,37 @@ public class InicialController implements Initializable {
     }
 
     @FXML
-    protected void onBtLoginAction(){
+    protected void onBtLoginCorrenteAction(){
         Conta conta;
-        if(cbContaCorrente.isSelected() && !cbContaPoupanca.isSelected()){
-            conta = BancoDeDados.findContaByCPF(campoLogin.getText(), TipoConta.CORRENTE);
-            if(conta == null){
-                Alerts.showAlertError("CPF Inexistente", null, "CPF não cadastrado");
-                return;
-            }
-        }else if(!cbContaCorrente.isSelected() && cbContaPoupanca.isSelected()){
+        conta = BancoDeDados.findContaByCPF(campoLogin.getText(), TipoConta.CORRENTE);
+        if(conta == null){
+            Alerts.showAlertError("CPF Inexistente", null, "CPF não cadastrado");
+            return;
+        }
+        /*else if(!cbContaCorrente.isSelected() && cbContaPoupanca.isSelected()){
             conta = BancoDeDados.findContaByCPF(campoLogin.getText(), TipoConta.POUPANÇA);
             if(conta == null){
                 Alerts.showAlertError("CPF Inexistente", null, "CPF não cadastrado");
                 return;
             }
+        }*/
+        if(conta.getCliente().getCpf().equals(campoLogin.getText()) && conta.getSenha().equals(campoSenha.getText())){
+            Application.setConta(conta);
+            resultado.setText("");
+            Application.changeScene("transferencia");
         }else{
-            Alerts.showAlertError("Logins Multiplos", null, "Selecione um e somente um, tipo de conta...");
+            recusado();
+            return;
+        }
+    }
+
+    @FXML
+    protected void onBtLoginPoupancaAction(){
+        Conta conta;
+        conta = BancoDeDados.findContaByCPF(campoLogin.getText(), TipoConta.CORRENTE);
+        conta = BancoDeDados.findContaByCPF(campoLogin.getText(), TipoConta.POUPANÇA);
+        if(conta == null){
+            Alerts.showAlertError("CPF Inexistente", null, "CPF não cadastrado");
             return;
         }
         if(conta.getCliente().getCpf().equals(campoLogin.getText()) && conta.getSenha().equals(campoSenha.getText())){
@@ -75,14 +89,15 @@ public class InicialController implements Initializable {
 
     @FXML
     protected void recusado(){
-        resultado.setText("Login inválido...");
-        resultado.setTextFill(Color.RED);
+        resultado.setText("Login inválido");
+        Color color = Color.web("#952929");
+        resultado.setTextFill(color);
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    }
-    public void checkInvalid(){
         Constraints.setTextFieldInteger(campoLogin);
+        Constraints.setTextFieldMaxLength(campoLogin, 11);
+        Constraints.setTextFieldMaxLength(campoSenha, 16);
     }
 }

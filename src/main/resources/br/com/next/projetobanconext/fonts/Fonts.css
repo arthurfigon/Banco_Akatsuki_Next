@@ -1,0 +1,16 @@
+@font-face {
+	font-family: 'Hemi Head Rg';
+	src: url('Hemi_Head_Rg.ttf');
+}
+
+.label {
+    -fx-font-family: 'Hemi Head Rg';
+    -fx-font-size: 20;
+    -fx-text-fill: #979797;
+}
+
+.button .text {
+    -fx-font-family: 'Hemi Head Rg';
+    -fx-text-fill: #979797;
+    -fx-font-size: 20;
+}
