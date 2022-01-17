@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -125,5 +126,9 @@ public class MenuLogadoController implements Initializable {
         listConta = BancoDeDados.returnTodasContas();
         observableList = FXCollections.observableList(listConta);
         contaComboBox.setItems(observableList);
+    }
+
+    @FXML
+    public void onBtAreaPixAction() {
     }
 }

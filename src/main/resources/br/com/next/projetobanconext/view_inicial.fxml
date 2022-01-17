@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="180.0" prefWidth="280.0" styleClass="anchor" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.InicialController">
+<AnchorPane prefHeight="140.0" prefWidth="500.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2;" styleClass="anchor" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.InicialController">
    <stylesheets>
       <URL value="@images/Fundo.css" />
    </stylesheets>
@@ -20,39 +20,36 @@
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
-   <Label alignment="TOP_LEFT" layoutX="17.0" layoutY="14.0" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" styleClass="text" stylesheets="@fonts/Fonts.css" text="CPF:" textFill="#979797">
-      <font>
-         <Font name="HemiHeadRg" size="20.0" />
-      </font></Label>
-   <TextField fx:id="campoLogin" layoutX="20.0" layoutY="45.0" maxHeight="120.0" maxWidth="120.0" promptText="CPF" styleClass="label" stylesheets="@fonts/Fonts.css">
+   <TextField fx:id="campoLogin" layoutX="211.0" layoutY="31.0" maxHeight="120.0" maxWidth="321.0" prefHeight="38.0" prefWidth="312.0" promptText="CPF" styleClass="label" stylesheets="@fonts/Fonts.css">
       <font>
          <Font name="HemiHeadRg" size="12.0" />
       </font></TextField>
-   <Label alignment="TOP_LEFT" layoutX="17.0" layoutY="93.0" prefHeight="17.0" prefWidth="126.0" snapToPixel="false" styleClass="text" stylesheets="@fonts/Fonts.css" text="Senha:" textFill="#979797">
-      <font>
-         <Font name="Arial Bold Italic" size="20.0" />
-      </font></Label>
-        <TextField fx:id="campoSenha" layoutX="20.0" layoutY="126.0" maxHeight="120.0" maxWidth="120.0" promptText="Senha" styleClass="label" stylesheets="@fonts/Fonts.css">
+        <TextField fx:id="campoSenha" layoutX="211.0" layoutY="93.0" maxHeight="120.0" maxWidth="312.0" prefHeight="38.0" prefWidth="312.0" promptText="Senha" styleClass="label" stylesheets="@fonts/Fonts.css">
       <font>
          <Font name="HemiHeadRg-BoldItalic" size="12.0" />
       </font></TextField>
-   <ImageView fx:id="btLoginDois" fitHeight="55.0" fitWidth="150.0" layoutX="170.0" layoutY="30.0" onMouseClicked="#onBtLoginCorrenteAction" pickOnBounds="true">
+   <ImageView fx:id="btLoginDois" fitHeight="55.0" fitWidth="150.0" layoutX="208.0" layoutY="166.0" onMouseClicked="#onBtLoginCorrenteAction" pickOnBounds="true">
       <image>
          <Image url="@images/btContaCorrente.png" />
       </image>
    </ImageView>
-   <ImageView fx:id="btRegistrarDois" fitHeight="54.0" fitWidth="150.0" layoutX="172.0" layoutY="199.0" onMouseClicked="#onBtRegistrarAction" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="btRegistrarDois" fitHeight="54.0" fitWidth="150.0" layoutX="24.0" layoutY="166.0" onMouseClicked="#onBtRegistrarAction" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@images/Registrar3.png" />
       </image>
    </ImageView>
-   <Label fx:id="resultado" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="211.0" prefHeight="24.0" prefWidth="145.0" snapToPixel="false" stylesheets="@images/Fundo.css" textFill="WHITE">
+   <Label fx:id="resultado" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="201.0" layoutY="133.0" prefHeight="30.0" prefWidth="294.0" snapToPixel="false" textFill="WHITE">
       <font>
-         <Font name="HemiHeadRg" size="20.0" />
+         <Font name="HemiHeadRg-BoldItalic" size="20.0" />
       </font></Label>
-   <ImageView fx:id="btLoginDois1" fitHeight="55.0" fitWidth="150.0" layoutX="170.0" layoutY="117.0" onMouseClicked="#onBtLoginPoupancaAction" pickOnBounds="true">
+   <ImageView fx:id="btLoginDois1" fitHeight="55.0" fitWidth="150.0" layoutX="367.0" layoutY="166.0" onMouseClicked="#onBtLoginPoupancaAction" pickOnBounds="true">
       <image>
          <Image url="@images/btContaPoupanca.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="102.0" fitWidth="150.0" layoutX="22.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@images/Next.png" />
       </image>
    </ImageView>
 
