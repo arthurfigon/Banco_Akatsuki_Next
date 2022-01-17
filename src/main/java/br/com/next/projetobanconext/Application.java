@@ -16,6 +16,8 @@ public class Application extends javafx.application.Application {
     private static Scene sceneInicial;
     private static Scene sceneTransferencia;
     private static Scene sceneRegistrar;
+    private static Scene scenePix;
+    private static Scene sceneCartoes;
     private static Conta conta;
 
     public static Conta getConta() {
@@ -41,6 +43,12 @@ public class Application extends javafx.application.Application {
         FXMLLoader fxmlLoaderRegistrar = new FXMLLoader(Application.class.getResource("view_registrar.fxml"));
         sceneRegistrar = new Scene(fxmlLoaderRegistrar.load());
 
+        FXMLLoader fxmlLoaderPix = new FXMLLoader(Application.class.getResource("view_pix.fxml"));
+        scenePix = new Scene(fxmlLoaderPix.load());
+
+        FXMLLoader fxmlLoaderCartoes = new FXMLLoader(Application.class.getResource("view_cartoes.fxml"));
+        sceneCartoes = new Scene(fxmlLoaderCartoes.load());
+
         stage.setTitle("Web Banking Next");
         stage.setScene(sceneInicial);
         stage.show();
@@ -51,6 +59,8 @@ public class Application extends javafx.application.Application {
             case "main" -> stage.setScene(sceneInicial);
             case "registrar" -> stage.setScene(sceneRegistrar);
             case "transferencia" -> stage.setScene(sceneTransferencia);
+            case "pix" -> stage.setScene(scenePix);
+            case "cartoes" -> stage.setScene(sceneCartoes);
             default -> {break;}
         }
     }

@@ -132,6 +132,10 @@ public class ContaBO{
         return novoNumero.strip();
     }
 
+    public void sacar(double valor){
+        this.conta.setSaldo(conta.getSaldo() - valor);
+    }
+
     public static boolean checkSenhaValida(String senha){
         if(senha.contains(" ") || (senha.length() < 6 || senha.length() > 16)){
             return false;

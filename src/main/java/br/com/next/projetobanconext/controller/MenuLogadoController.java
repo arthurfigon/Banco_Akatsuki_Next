@@ -10,10 +10,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -27,11 +27,13 @@ public class MenuLogadoController implements Initializable {
     public Label labelSaldo;
     public TextField txtValor;
     public Label labelValor;
-    public Button btAplicar;
+    public ImageView btAplicar;
     public Label labelContaDestino;
-    public Button btAtualizar;
+    public ImageView btAtualizar;
     public Label idNomeCartao;
     public Label idNumeroCartao;
+    public Label idTipoCliente;
+    public Label idTipoConta;
     private boolean depositar = true;
 
     List<Conta> listConta;
@@ -56,10 +58,8 @@ public class MenuLogadoController implements Initializable {
         labelContaDestino.setVisible(false);
         btAtualizar.setVisible(false);
         contaComboBox.setVisible(false);
-        labelSaldo.setText(String.valueOf("R$ "+Application.getConta().getSaldo()));
+        atualizaDados();
         depositar = true;
-        idNomeCartao.setText(Application.getConta().getCliente().getNome());
-        idNumeroCartao.setText(Application.getConta().getNumero());
     }
 
     @FXML
@@ -70,7 +70,7 @@ public class MenuLogadoController implements Initializable {
         labelContaDestino.setVisible(true);
         btAtualizar.setVisible(true);
         contaComboBox.setVisible(true);
-        labelSaldo.setText(String.valueOf("R$ "+Application.getConta().getSaldo()));
+        atualizaDados();
         depositar = false;
     }
     
@@ -89,7 +89,7 @@ public class MenuLogadoController implements Initializable {
                 Alerts.showAlertError("Saldo Indisponível...", null, "Você não tem saldo suficiente para realizar essa operação...");
             }
         }
-        labelSaldo.setText("R$ "+String.valueOf(Application.getConta().getSaldo()));
+        atualizaDados();
         txtValor.setVisible(false);
         labelValor.setVisible(false);
         btAplicar.setVisible(false);
@@ -97,6 +97,14 @@ public class MenuLogadoController implements Initializable {
         btAtualizar.setVisible(false);
         contaComboBox.setVisible(false);
         depositar = false;
+    }
+
+    public void atualizaDados(){
+        idNomeCartao.setText(Application.getConta().getCliente().getNome());
+        idNumeroCartao.setText(Application.getConta().getNumero());
+        labelSaldo.setText("R$ "+String.valueOf(Application.getConta().getSaldo()));
+        idTipoCliente.setText(Application.getConta().getCliente().getTipo().name());
+        idTipoConta.setText("Conta "+Application.getConta().getTipoConta().name());
     }
 
     public void deslogar(){
@@ -130,5 +138,11 @@ public class MenuLogadoController implements Initializable {
 
     @FXML
     public void onBtAreaPixAction() {
+        Application.changeScene("pix");
+    }
+
+    @FXML
+    public void onBtCartoesAction() {
+        Application.changeScene("cartoes");
     }
 }

@@ -12,8 +12,26 @@ public class Conta{
     private TipoConta tipoConta;
     private boolean isAdmin = false;
     private PixBO[] chavesPix = new PixBO[4];
+    private CartaoCredito cartaoCredito;
+    private CartaoDebito cartaoDebito;
     private double taxa;
     private Date dataTaxa = new Date();
+
+    public CartaoCredito getCartaoCredito() {
+        return cartaoCredito;
+    }
+
+    public void setCartaoCredito(CartaoCredito cartaoCredito) {
+        this.cartaoCredito = cartaoCredito;
+    }
+
+    public CartaoDebito getCartaoDebito() {
+        return cartaoDebito;
+    }
+
+    public void setCartaoDebito(CartaoDebito cartaoDebito) {
+        this.cartaoDebito = cartaoDebito;
+    }
 
     public double getTaxa() {
         return taxa;

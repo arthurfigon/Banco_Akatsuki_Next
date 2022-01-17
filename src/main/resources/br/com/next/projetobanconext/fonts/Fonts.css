@@ -5,12 +5,22 @@
 
 .label {
     -fx-font-family: 'Hemi Head Rg';
-    -fx-font-size: 20;
-    -fx-text-fill: #979797;
+    -fx-text-fill: #d0d0d0;
 }
 
 .button .text {
     -fx-font-family: 'Hemi Head Rg';
-    -fx-text-fill: #979797;
-    -fx-font-size: 20;
+    -fx-text-fill: #d0d0d0;
+}
+
+.textPadrao {
+    -fx-font-family: 'Hemi Head Rg';
+    -fx-text-fill: #000000;
+    -fx-font-size: 16pt;
+}
+
+.checkBox{
+    -fx-font-family: 'Hemi Head Rg';
+    -fx-text-fill: #d0d0d0;
+    -fx-font-size: 16pt;
 }

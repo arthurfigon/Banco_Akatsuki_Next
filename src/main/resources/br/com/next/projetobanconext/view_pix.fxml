@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2;" styleClass="anchor" stylesheets="@images/Fundo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.PixController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="40.0" onMouseClicked="#onBtConsultarChaveAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/ConsultarChaves.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="114.0" onMouseClicked="#onBtCadastrarChaveAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/CadastrarChave.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="284.0" onMouseClicked="#onBtVoltarAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Voltar.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="238.0" layoutY="40.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Chave:" />
+      <Label layoutX="249.0" layoutY="66.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor:" />
+      <Label fx:id="idChaveConteudo" layoutX="318.0" layoutY="40.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" />
+      <Label fx:id="idChaveValor" layoutX="315.0" layoutY="66.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" />
+      <AnchorPane fx:id="idCampoCadastro" layoutX="242.0" layoutY="125.0" prefHeight="238.0" prefWidth="349.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2; -fx-border-radius: 5;" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="22.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Insira o tipo da chave:" />
+            <TextField fx:id="txtConteudoChave" layoutX="14.0" layoutY="49.0" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <Label fx:id="idLabelValorChave" layoutX="14.0" layoutY="97.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor do Pix:" />
+            <TextField fx:id="txtValorChave" layoutX="14.0" layoutY="124.0" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <ImageView fitHeight="50.0" fitWidth="168.0" layoutX="13.0" layoutY="175.0" onMouseClicked="#cadastraChave" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Aplicar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView onMouseClicked="#onBtProcurarAction" fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Procurar.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="idPanePagamentoPix" layoutX="280.0" layoutY="111.0" prefHeight="228.0" prefWidth="333.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2; -fx-border-radius: 25;" visible="false">
+         <children>
+            <Label layoutX="27.0" layoutY="27.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Chave:" />
+            <TextField fx:id="txtCampoPagamentoPix" layoutX="27.0" layoutY="57.0" promptText="Digite a chave pix..." styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <ImageView onMouseClicked="#transfereDinheiro" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Pagar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

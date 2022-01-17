@@ -5,7 +5,7 @@ public class PixBO {
     private static int transacoesFeitas = 0;
 
     public boolean ativarChave(TipoChavePix chavePix, double valor, String conteudoChave, Conta conta){
-        if(conta == null || valor > conta.getSaldo()){
+        if(conta == null){
             return false;
         }
         pix.setId(transacoesFeitas);

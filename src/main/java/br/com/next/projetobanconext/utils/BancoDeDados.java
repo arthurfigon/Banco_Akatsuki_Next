@@ -23,6 +23,25 @@ public class BancoDeDados {
         Conta contaBO2 = new ContaBO("1234567", clienteBO2.getCliente(), TipoConta.POUPANÇA).getConta();
     }
 
+    public static Conta findContabyChavePix(String chave){
+        for(Map.Entry<Long, Conta> conta : BancoDeDados.bancoDeDados.entrySet()){
+            if(conta.getValue().getChavesPix()[0] != null &&
+                    conta.getValue().getChavesPix()[0].getPix().getConteudoChave().equals(chave)) {
+                return conta.getValue();
+            }else if(conta.getValue().getChavesPix()[1] != null &&
+                    conta.getValue().getChavesPix()[1].getPix().getConteudoChave().equals(chave)) {
+                return conta.getValue();
+            }else if(conta.getValue().getChavesPix()[2] != null &&
+                    conta.getValue().getChavesPix()[2].getPix().getConteudoChave().equals(chave)) {
+                return conta.getValue();
+            }else if(conta.getValue().getChavesPix()[3] != null &&
+                    conta.getValue().getChavesPix()[3].getPix().getConteudoChave().equals(chave)) {
+                return conta.getValue();
+            }
+        }
+        return null;
+    }
+
     public static long getContasCriadas() {
         return contasCriadas;
     }
