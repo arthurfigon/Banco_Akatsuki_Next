@@ -32,12 +32,11 @@ public class Constraints {
             }
         });
     }
-
     public static void setTextFieldLetters(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
             if(newValue.matches("")){
 
-            }else if(newValue != null && !(newValue.matches("[a-zA-Z]*"))){
+            }else if(newValue != null && !(newValue.matches("[a-zA-Z]*([\\\\ ]{0,1}[a-zA-Z]*)*"))){
                 txt.setText(oldValue);
             }
         });

@@ -56,7 +56,7 @@ public class MenuLogadoController implements Initializable {
         labelContaDestino.setVisible(false);
         btAtualizar.setVisible(false);
         contaComboBox.setVisible(false);
-        labelSaldo.setText(String.valueOf(Application.getConta().getSaldo()));
+        labelSaldo.setText(String.valueOf("R$ "+Application.getConta().getSaldo()));
         depositar = true;
         idNomeCartao.setText(Application.getConta().getCliente().getNome());
         idNumeroCartao.setText(Application.getConta().getNumero());
@@ -70,7 +70,7 @@ public class MenuLogadoController implements Initializable {
         labelContaDestino.setVisible(true);
         btAtualizar.setVisible(true);
         contaComboBox.setVisible(true);
-        labelSaldo.setText(String.valueOf(Application.getConta().getSaldo()));
+        labelSaldo.setText(String.valueOf("R$ "+Application.getConta().getSaldo()));
         depositar = false;
     }
     
@@ -89,7 +89,7 @@ public class MenuLogadoController implements Initializable {
                 Alerts.showAlertError("Saldo Indisponível...", null, "Você não tem saldo suficiente para realizar essa operação...");
             }
         }
-        labelSaldo.setText(String.valueOf(Application.getConta().getSaldo()));
+        labelSaldo.setText("R$ "+String.valueOf(Application.getConta().getSaldo()));
         txtValor.setVisible(false);
         labelValor.setVisible(false);
         btAplicar.setVisible(false);
