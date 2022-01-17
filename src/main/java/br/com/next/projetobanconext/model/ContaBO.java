@@ -116,8 +116,17 @@ public class ContaBO{
     private String setNumeroRandom(){
         Random random = new Random();
         String novoNumero = "";
+        int numeroDaVez = 0;
         for(int i = 0; i < 4; i++){
-            novoNumero += String.valueOf(random.nextInt(10000));
+            numeroDaVez = random.nextInt(10000);
+            if(numeroDaVez<10){
+                novoNumero += "000";
+            }else if(numeroDaVez<100){
+                novoNumero += "00";
+            }else if(numeroDaVez<1000){
+                novoNumero += "0";
+            }
+            novoNumero += String.valueOf(numeroDaVez);
             novoNumero += " ";
         }
         return novoNumero.strip();

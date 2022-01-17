@@ -29,6 +29,8 @@ public class MenuLogadoController implements Initializable {
     public Button btAplicar;
     public Label labelContaDestino;
     public Button btAtualizar;
+    public Label idNomeCartao;
+    public Label idNumeroCartao;
     private boolean depositar = true;
 
     List<Conta> listConta;
@@ -50,8 +52,13 @@ public class MenuLogadoController implements Initializable {
         labelValor.setVisible(true);
         btAplicar.setVisible(true);
         txtValor.setVisible(true);
+        labelContaDestino.setVisible(false);
+        btAtualizar.setVisible(false);
+        contaComboBox.setVisible(false);
         labelSaldo.setText(String.valueOf(Application.getConta().getSaldo()));
         depositar = true;
+        idNomeCartao.setText(Application.getConta().getCliente().getNome());
+        idNumeroCartao.setText(Application.getConta().getNumero());
     }
 
     @FXML
