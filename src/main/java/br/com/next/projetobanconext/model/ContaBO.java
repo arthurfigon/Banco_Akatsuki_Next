@@ -10,19 +10,13 @@ public class ContaBO{
 
     private Conta conta = new Conta();
 
-    public ContaBO(String senha, Cliente cliente, TipoConta tipoConta, Boolean isAdmin) {
+    public ContaBO(String senha, Cliente cliente, TipoConta tipoConta) {
         cadastrarConta(senha,cliente,tipoConta);
-
-        conta.setAdmin(isAdmin);
 
         Calendar calendarAplicacaoTaxa = Calendar.getInstance();
         calendarAplicacaoTaxa.add(Calendar.MONTH, 1);
         Date dataAplicacaoTaxa = calendarAplicacaoTaxa.getTime();
         conta.setDataTaxa(dataAplicacaoTaxa);
-    }
-
-    public ContaBO(String senha, Cliente cliente, TipoConta tipoConta) {
-        cadastrarConta(senha,cliente,tipoConta);
     }
 
     public ContaBO(Conta conta) {
@@ -141,22 +135,6 @@ public class ContaBO{
             return false;
         }
         return true;
-    }
-
-    public void cadastraChavePixAConta(PixBO pixBO){
-        if(pixBO.getPix().getChavePix().equals(TipoChavePix.CPF)){
-            System.out.println("CPF Guys");
-            conta.setChavesPix(pixBO,0);
-        }else if(pixBO.getPix().getChavePix().equals(TipoChavePix.EMAIL)){
-            System.out.println("Email Guys");
-            conta.setChavesPix(pixBO,1);
-        }else if(pixBO.getPix().getChavePix().equals(TipoChavePix.TELEFONE)){
-            System.out.println("Telefone Guys");
-            conta.setChavesPix(pixBO,2);
-        }else{
-            System.out.println("Random Guys");
-            conta.setChavesPix(pixBO,3);
-        }
     }
 
     public Conta getConta() {

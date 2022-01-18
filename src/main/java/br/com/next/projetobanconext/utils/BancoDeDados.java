@@ -59,14 +59,14 @@ public class BancoDeDados {
     }
 
     public static Conta findContaByCPF(String cpf, TipoConta tipoConta){
-        Long idEncontrado = findIdConta(cpf, tipoConta);
+        Long idEncontrado = findIdContaByCPF(cpf, tipoConta);
         if(idEncontrado == null){
             return null;
         }
         return BancoDeDados.bancoDeDados.get(idEncontrado);
     }
 
-    private static Long findIdConta(String cpf, TipoConta tipoConta){
+    private static Long findIdContaByCPF(String cpf, TipoConta tipoConta){
         for(Map.Entry<Long, Conta> conta : BancoDeDados.bancoDeDados.entrySet()){
             if(conta.getValue().getCliente().getCpf().equals(cpf) &&
                     conta.getValue().getTipoConta().equals(tipoConta)) {

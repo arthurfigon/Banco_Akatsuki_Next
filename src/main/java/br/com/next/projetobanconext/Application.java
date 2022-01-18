@@ -1,10 +1,9 @@
 package br.com.next.projetobanconext;
 
-import br.com.next.projetobanconext.model.*;
-import br.com.next.projetobanconext.utils.*;
+import br.com.next.projetobanconext.model.Conta;
+import br.com.next.projetobanconext.utils.BancoDeDados;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -61,7 +60,8 @@ public class Application extends javafx.application.Application {
             case "transferencia" -> stage.setScene(sceneTransferencia);
             case "pix" -> stage.setScene(scenePix);
             case "cartoes" -> stage.setScene(sceneCartoes);
-            default -> {break;}
+            default -> {
+            }
         }
     }
 

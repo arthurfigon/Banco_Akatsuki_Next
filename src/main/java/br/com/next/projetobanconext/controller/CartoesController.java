@@ -3,6 +3,7 @@ package br.com.next.projetobanconext.controller;
 import br.com.next.projetobanconext.Application;
 import br.com.next.projetobanconext.model.CartaoCredito;
 import br.com.next.projetobanconext.model.CartaoDebito;
+import br.com.next.projetobanconext.model.Compra;
 import br.com.next.projetobanconext.utils.Alerts;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -38,12 +39,15 @@ public class CartoesController {
     public Label idLabelBandeiraDebito;
     public ImageView idBtBloquearDebito;
     public Label idLabelLimiteDebito;
+    public AnchorPane idPaneCompraCredito;
+    public TextField idTxtValor;
+    public TextField idTxtNomeProduto;
 
     @FXML
     public void onBtCreditoAction(){
         if(Application.getConta().getCartaoCredito() == null) {
+            fechaTudo();
             idPaneCadastrarCredito.setVisible(!idPaneCadastrarCredito.isVisible());
-            idPaneCadastrarDebito.setVisible(false);
         } else{
             if(!idPaneAcessarCredito.isVisible()){
                 idPaneAcessarCredito.setVisible(true);
@@ -58,6 +62,43 @@ public class CartoesController {
             idLabelDataVencimentoCredito.setText("Vencimento: "+Application.getConta().getCartaoCredito().getDateString());
         }
     }
+
+    @FXML
+    public void onBtComprarAction(){
+        if(Application.getConta().getCartaoCredito() != null) {
+            fechaTudo();
+            idPaneCompraCredito.setVisible(!idPaneCompraCredito.isVisible());
+        }else{
+            Alerts.showAlertError("Cartão Não Cadastrado", null, "Cartão de Crédito não cadastrado...");
+        }
+    }
+
+    public void onBtConfirmarCompraAction(){
+        Compra compra = new Compra(idTxtNomeProduto.getText(),Double.parseDouble(idTxtValor.getText()));
+        Application.getConta().getCartaoCredito().addCompra(compra);
+        fechaTudo();
+    }
+
+    public void onBtPagarFaturaAction(){
+        if(Application.getConta().getCartaoCredito() != null) {
+            if(Application.getConta().getCartaoCredito().pagarFatura(Application.getConta())) {
+                Alerts.showAlertConfirmation("Sucesso", null, "Fatura paga com sucesso!");
+            }else{
+                Alerts.showAlertError("Erro no Pagamento", null, "Saldo Insuficiente...");
+            }
+        }else{
+            Alerts.showAlertError("Cartão Não Cadastrado", null, "Cartão de Crédito não cadastrado...");
+        }
+    }
+
+    public void fechaTudo(){
+        idPaneCadastrarDebito.setVisible(false);
+        idPaneCompraCredito.setVisible(false);
+        idPaneAcessarCredito.setVisible(false);
+        idPaneCadastrarCredito.setVisible(false);
+        idPaneAcessarDebito.setVisible(false);
+    }
+
     @FXML
     public void onBtCadastrarCreditoAction(){
         String senha = txtSenhaCredito.getText();
@@ -92,8 +133,8 @@ public class CartoesController {
     @FXML
     public void onBtDebitoAction(){
         if(Application.getConta().getCartaoDebito() == null) {
+            fechaTudo();
             idPaneCadastrarDebito.setVisible(!idPaneCadastrarDebito.isVisible());
-            idPaneCadastrarCredito.setVisible(false);
         }else{
             if(!idPaneAcessarDebito.isVisible()){
                 idPaneAcessarDebito.setVisible(true);
