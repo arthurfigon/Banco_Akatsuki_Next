@@ -24,7 +24,7 @@
             <Font name="HemiHeadRg-BoldItalic" size="21.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="405.0" onMouseClicked="#onBtDebitoAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="436.0" onMouseClicked="#onBtDebitoAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Débito.png" />
          </image>
@@ -39,12 +39,12 @@
             <Image url="@images/Voltar.png" />
          </image>
       </ImageView>
-      <ImageView onMouseClicked="#onBtComprarAction" fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="314.0" onMouseClicked="#onBtComprarAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Comprar.png" />
          </image>
       </ImageView>
-      <ImageView onMouseClicked="#onBtPagarFaturaAction" fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="352.0" onMouseClicked="#onBtPagarFaturaAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/PagarFatura.png" />
          </image>
@@ -119,12 +119,17 @@
                </font>
             </Label>
             <TextField fx:id="idTxtNomeProduto" layoutX="23.0" layoutY="55.0" promptText="Nome do Produto" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
-            <ImageView onMouseClicked="#onBtConfirmarCompraAction" fitHeight="46.0" fitWidth="176.0" layoutX="23.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="176.0" layoutX="23.0" layoutY="192.0" onMouseClicked="#onBtConfirmarCompraAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Comprar.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="392.0" onMouseClicked="#onBtSegurosAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Seguros.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -63,6 +63,14 @@ public class CartoesController {
         }
     }
 
+    public void onBtSegurosAction(){
+        if(Application.getConta().getCartaoCredito() != null) {
+            Application.changeScene("apolices");
+        }else{
+            Alerts.showAlertError("Cartão Não Cadastrado", null, "Cartão de Crédito não cadastrado...");
+        }
+    }
+
     @FXML
     public void onBtComprarAction(){
         if(Application.getConta().getCartaoCredito() != null) {

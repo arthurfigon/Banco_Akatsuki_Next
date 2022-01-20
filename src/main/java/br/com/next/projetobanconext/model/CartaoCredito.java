@@ -11,7 +11,19 @@ public class CartaoCredito extends Cartao{
     private double valorFatura = 0;
     private Date dataVencimento;
     private List<Compra> compras = new ArrayList<>();
+    private List<Apolice> apolices = new ArrayList<>();
 
+    public void addApolice(Apolice apolice){
+        apolices.add(apolice);
+    }
+
+    public List<Apolice> getApolices() {
+        return apolices;
+    }
+
+    public void setApolices(List<Apolice> apolices) {
+        this.apolices = apolices;
+    }
 
     public CartaoCredito(String bandeira, String senha, Date dataVencimento) {
         super(bandeira, senha, true);

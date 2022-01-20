@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="idScene" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2;" styleClass="anchor" stylesheets="@images/Fundo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.ApolicesController">
+   <children>
+      <ComboBox fx:id="idCbSeguros" layoutX="24.0" layoutY="37.0" onAction="#selecionarNaLista" prefHeight="41.0" prefWidth="340.0" promptText="Selecione um Seguro" style="-fx-background-color: #d0d0d0;" styleClass="checkBox" stylesheets="@fonts/Fonts.css" />
+      <AnchorPane fx:id="idPane" layoutX="24.0" layoutY="90.0" prefHeight="284.0" prefWidth="412.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2; -fx-border-radius: 10;">
+         <children>
+            <Label fx:id="idLbSeguro" layoutX="23.0" layoutY="30.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Seguro" />
+            <Label fx:id="idLbValor" layoutX="23.0" layoutY="66.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor por Ano" />
+            <Label fx:id="idLbRegras" layoutX="23.0" layoutY="103.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Regras" />
+            <ImageView fitHeight="41.0" fitWidth="153.0" layoutX="23.0" layoutY="212.0" onMouseClicked="#confirmarSeguro" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Comprar.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="idTxfAnos" layoutX="21.0" layoutY="142.0" promptText="Quantidade de anos" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="41.0" fitWidth="165.0" layoutX="376.0" layoutY="37.0" onMouseClicked="#atualizarLista" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Atualizar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="165.0" layoutX="462.0" layoutY="333.0" onMouseClicked="#voltar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Voltar.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
