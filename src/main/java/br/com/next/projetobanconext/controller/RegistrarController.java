@@ -10,7 +10,6 @@ import br.com.next.projetobanconext.utils.BancoDeDados;
 import br.com.next.projetobanconext.utils.Constraints;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 
@@ -34,9 +33,7 @@ public class RegistrarController implements Initializable {
     public TextField textCidade;
     public TextField textEstado;
     public TextField textSenha;
-    public CheckBox cbContaPoupança;
-    public Button btCadastrar;
-    public Button btVoltar;
+    public CheckBox cbContaPoupanca;
 
     @FXML
     public void onBtCadastrarAction(){
@@ -48,7 +45,7 @@ public class RegistrarController implements Initializable {
                 return;
             }
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date data = null;
+            Date data;
             try {
                 data = sdf.parse(textNascimento.getText().strip());
             }catch (ParseException e) {
@@ -68,15 +65,15 @@ public class RegistrarController implements Initializable {
                     return;
                 }
             }
-            if(cbContaPoupança.isSelected()){
-                if(BancoDeDados.findContaByCPF(textCPF.getText(), TipoConta.POUPANÇA) == null) {
-                    ContaBO contaBO = new ContaBO(textSenha.getText(), clienteBO.getCliente(), TipoConta.POUPANÇA);
+            if(cbContaPoupanca.isSelected()){
+                if(BancoDeDados.findContaByCPF(textCPF.getText(), TipoConta.POUPANCA) == null) {
+                    ContaBO contaBO = new ContaBO(textSenha.getText(), clienteBO.getCliente(), TipoConta.POUPANCA);
                 }else{
                     Alerts.showAlertError("CPF já cadastrado", null, "Esse CPF já foi cadastrado para Poupança...");
                     return;
                 }
             }
-            if (!cbContaCorrente.isSelected() && !cbContaPoupança.isSelected()){
+            if (!cbContaCorrente.isSelected() && !cbContaPoupanca.isSelected()){
                 Alerts.showAlertError("Nenhuma Conta Selecionada", "Nenhuma Conta Selecionada", "Favor selecionar o tipo de Conta...");
                 return;
             }
@@ -99,7 +96,7 @@ public class RegistrarController implements Initializable {
         textCidade.setText("");
         textEstado.setText("");
         textSenha.setText("");
-        cbContaPoupança.setSelected(false);
+        cbContaPoupanca.setSelected(false);
     }
 
 

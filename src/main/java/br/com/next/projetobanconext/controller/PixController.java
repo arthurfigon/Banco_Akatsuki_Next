@@ -173,7 +173,6 @@ public class PixController implements Initializable {
         if(contaExterna == null || valorAPagar > Application.getConta().getSaldo()){
             Alerts.showAlertError("Transferência Inválida", null, "Erro Ao Realizar a Transferência");
             idPanePagamentoPix.setVisible(false);
-            return;
         }else{
             ContaBO contaBO = new ContaBO(Application.getConta());
             contaBO.sacar(valorAPagar);

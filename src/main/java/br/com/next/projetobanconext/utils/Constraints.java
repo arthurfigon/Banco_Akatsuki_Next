@@ -7,10 +7,10 @@ public class Constraints {
  // [^[a-z][A-Z]*] só letras
     public static void setTextFieldInteger(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-            if(newValue.matches("")){
-
-            }else if(newValue != null && !(newValue.matches("[0-9]*"))){
-                txt.setText(oldValue);
+            if(!newValue.matches("")){
+                if(!newValue.matches("[0-9]*")){
+                    txt.setText(oldValue);
+                }
             }
         });
     }
@@ -25,29 +25,29 @@ public class Constraints {
 
     public static void setTextFieldDouble(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-            if(newValue.matches("")){
-
-            }else if(newValue != null && !(newValue.matches("\\d++([.]{1}){0,1}(\\d++){0,1}"))){
-                txt.setText(oldValue);
+            if(!newValue.matches("")){
+                if(!(newValue.matches("\\d++([.])?(\\d++)?"))){
+                    txt.setText(oldValue);
+                }
             }
         });
     }
     public static void setTextFieldLetters(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-            if(newValue.matches("")){
-
-            }else if(newValue != null && !(newValue.matches("[a-zA-Z]*([\\\\ ]{0,1}[a-zA-Z]*)*"))){
-                txt.setText(oldValue);
+            if(!newValue.matches("")){
+                if(!newValue.matches("[a-zA-Z]*([\\\\ ]?[a-zA-Z]*)*")){
+                    txt.setText(oldValue);
+                }
             }
         });
     }
 
     public static void setTextFieldDate(TextField txt){
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-            if(newValue.matches("")){
-
-            }else if(newValue != null && !(newValue.matches("\\d{1,2}([\\\\/]{1}){0,1}([\\d]){0,2}([\\\\/]{1}){0,1}([\\d]){0,4}"))){
-                txt.setText(oldValue);
+            if(!newValue.matches("")){
+                if(!newValue.matches("\\d{1,2}([\\\\/])?([\\d]){0,2}([\\\\/])?([\\d]){0,4}")){
+                    txt.setText(oldValue);
+                }
             }
         });
     }

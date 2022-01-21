@@ -4,7 +4,6 @@ import br.com.next.projetobanconext.utils.BancoDeDados;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
 
 public class ContaBO{
 
@@ -21,11 +20,6 @@ public class ContaBO{
 
     public ContaBO(Conta conta) {
         this.conta = conta;
-    }
-
-    public String consultarConta(){
-        return "Id: "+conta.getIdConta()+"\nCPF: "+conta.getCliente().getCpf()+"\nNome: "+conta.getCliente().getNome()+
-                "\nSaldo: R$ "+conta.getSaldo()+ "\nTipo do Cliente: "+conta.getCliente().getTipo();
     }
 
     public boolean transferir(double valor, ContaBO externa){
@@ -111,10 +105,7 @@ public class ContaBO{
     }
 
     public static boolean checkSenhaValida(String senha){
-        if(senha.contains(" ") || (senha.length() < 6 || senha.length() > 16)){
-            return false;
-        }
-        return true;
+        return !senha.contains(" ") && (senha.length() >= 6 && senha.length() <= 16);
     }
 
     public Conta getConta() {

@@ -2,9 +2,9 @@ package br.com.next.projetobanconext.model;
 
 public enum TipoConta {
 
-    CORRENTE(1), POUPANÇA(2);
+    CORRENTE(1), POUPANCA(2);
 
-    private int id;
+    private final int id;
 
     TipoConta(int id){
             this.id = id;

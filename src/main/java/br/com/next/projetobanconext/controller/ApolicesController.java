@@ -76,12 +76,12 @@ public class ApolicesController implements Initializable {
                 cal.getTime());
 
         if (Application.getConta().getSaldo() < seguroSelecionado.getValorAno() * anosContratacao){
-            Alerts.showAlertError("Saldo na Contratação", null, "Saldo Insuficiente para Contratação...");
+            Alerts.showAlertError("Saldo na Contratação", "Saldo Insuficiente para Contratação...");
             return;
         }
 
         Application.getConta().getCartaoCredito().addApolice(apolice);
-        Alerts.showAlertConfirmation("Seguro Contratado", null, "Seguro contratado com Sucesso!");
+        Alerts.showAlertConfirmation("Seguro Contratado", "Seguro contratado com Sucesso!");
         idPane.setVisible(false);
     }
 

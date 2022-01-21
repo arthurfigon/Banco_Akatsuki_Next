@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class BancoDeDados {
     private static long contasCriadas = 0;
-    public static Map<Long, Conta> bancoDeDados = new HashMap<Long, Conta>();
+    public static Map<Long, Conta> bancoDeDados = new HashMap<>();
 
 
     public static void insereContasPadrao(){
@@ -20,7 +20,7 @@ public class BancoDeDados {
         Conta contaBO = new ContaBO("1234567", clienteBO1.getCliente(), TipoConta.CORRENTE).getConta();
 
         ClienteBO clienteBO2 = new ClienteBO("22222222222", "Gabriel", data, endereco);
-        Conta contaBO2 = new ContaBO("1234567", clienteBO2.getCliente(), TipoConta.POUPANÇA).getConta();
+        Conta contaBO2 = new ContaBO("1234567", clienteBO2.getCliente(), TipoConta.POUPANCA).getConta();
     }
 
     public static Conta findContabyChavePix(String chave){

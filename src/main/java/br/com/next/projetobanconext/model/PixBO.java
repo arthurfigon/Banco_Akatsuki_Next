@@ -18,16 +18,8 @@ public class PixBO {
         return true;
     }
 
-    public String retornaDados(){
-        return "ID: "+pix.getId()+"\nConteudo da Chave: "+pix.getConteudoChave()+"\nValor da Chave: "+pix.getValor()
-                +"\nStatus da Chave: Ativada"+"\nCPF do Dono da Chave: "+pix.getConta().getCliente().getCpf();
-    }
-
     public Pix getPix() {
         return pix;
     }
 
-    public void setPix(Pix pix) {
-        this.pix = pix;
-    }
 }
