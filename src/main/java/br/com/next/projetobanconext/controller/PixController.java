@@ -7,14 +7,18 @@ import br.com.next.projetobanconext.model.PixBO;
 import br.com.next.projetobanconext.model.TipoChavePix;
 import br.com.next.projetobanconext.utils.Alerts;
 import br.com.next.projetobanconext.utils.BancoDeDados;
+import br.com.next.projetobanconext.utils.Constraints;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
 import java.util.Locale;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class PixController {
+public class PixController implements Initializable {
 
 
     public TextField txtConteudoChave;
@@ -31,12 +35,14 @@ public class PixController {
         cadastrando = false;
         idCampoCadastro.setVisible(true);
         txtValorChave.setVisible(true);
+        idLabelValorChave.setVisible(true);
         idChaveValor.setVisible(true);
     }
 
     public void onBtConsultarChaveAction(){
         cadastrando = true;
         idCampoCadastro.setVisible(true);
+        idLabelValorChave.setVisible(false);
         txtValorChave.setVisible(false);
         idLabelValorChave.setVisible(false);
     }
@@ -201,5 +207,11 @@ public class PixController {
 
     public void onBtVoltarAction(){
         Application.changeScene("transferencia");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Constraints.setTextFieldLetters(txtConteudoChave);
+        Constraints.setTextFieldDouble(txtValorChave);
     }
 }

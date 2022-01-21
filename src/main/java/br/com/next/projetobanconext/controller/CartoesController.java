@@ -5,18 +5,23 @@ import br.com.next.projetobanconext.model.CartaoCredito;
 import br.com.next.projetobanconext.model.CartaoDebito;
 import br.com.next.projetobanconext.model.Compra;
 import br.com.next.projetobanconext.utils.Alerts;
+import br.com.next.projetobanconext.utils.Constraints;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ResourceBundle;
 
-public class CartoesController {
+public class CartoesController implements Initializable {
 
 
     public Label idNomeCartao;
@@ -42,6 +47,9 @@ public class CartoesController {
     public AnchorPane idPaneCompraCredito;
     public TextField idTxtValor;
     public TextField idTxtNomeProduto;
+    public TextField idTxtNomeProdutoDebito;
+    public TextField idTxtValorDebito;
+    public AnchorPane idPaneCompraDebito;
 
     @FXML
     public void onBtCreditoAction(){
@@ -50,6 +58,7 @@ public class CartoesController {
             idPaneCadastrarCredito.setVisible(!idPaneCadastrarCredito.isVisible());
         } else{
             if(!idPaneAcessarCredito.isVisible()){
+                fechaTudo();
                 idPaneAcessarCredito.setVisible(true);
             }else{
                 idPaneAcessarCredito.setVisible(false);
@@ -105,6 +114,7 @@ public class CartoesController {
         idPaneAcessarCredito.setVisible(false);
         idPaneCadastrarCredito.setVisible(false);
         idPaneAcessarDebito.setVisible(false);
+        idPaneCompraDebito.setVisible(false);
     }
 
     @FXML
@@ -112,12 +122,12 @@ public class CartoesController {
         String senha = txtSenhaCredito.getText();
         String bandeira = txtBandeiraCredito.getText();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd");
         Date data = null;
         try {
             data = sdf.parse(txtVencimentoCredito.getText().strip());
         } catch (ParseException e) {
-            Alerts.showAlertError("Erro na Data de Nascimento", "Data de Nascimento Inválida", "Por favor, insira uma Data Válida...");
+            Alerts.showAlertError("Erro no Dia de Vencimento", "Data de Validação Inválida", "Por favor, insira uma Data Válida...");
             idPaneCadastrarCredito.setVisible(false);
             return;
         }
@@ -145,6 +155,7 @@ public class CartoesController {
             idPaneCadastrarDebito.setVisible(!idPaneCadastrarDebito.isVisible());
         }else{
             if(!idPaneAcessarDebito.isVisible()){
+                fechaTudo();
                 idPaneAcessarDebito.setVisible(true);
             }else{
                 idPaneAcessarDebito.setVisible(false);
@@ -168,5 +179,58 @@ public class CartoesController {
 
     public void onBtVoltarAction(){
         Application.changeScene("transferencia");
+    }
+
+    public void onBtComprarDebitoAction() {
+        if(Application.getConta().getCartaoDebito() != null) {
+            fechaTudo();
+            idPaneCompraDebito.setVisible(true);
+        }else{
+            Alerts.showAlertError("Cartão Não Cadastrado", null, "Cartão de Débito não cadastrado...");
+        }
+    }
+
+    public void onBtPagarCompraDebito(){
+        if(Double.parseDouble(idTxtValorDebito.getText())
+                > Application.getConta().getCartaoDebito().getLimitePorTransacao()){
+            Alerts.showAlertError(
+                    "Valor Inválido",
+                    null,
+                    "Seu limite é menor que o valor da compra...");
+        }
+        else if(Application.getConta().getSaldo() < Double.parseDouble(idTxtValorDebito.getText())){
+            Alerts.showAlertError(
+                    "Valor Indisponível",
+                    null,
+                    "Seu saldo não é suficiente para realizar a compra...");
+        }else{
+            Application.getConta().setSaldo(
+                    Application.getConta().getSaldo()
+                    - Double.parseDouble(idTxtValorDebito.getText()));
+            Alerts.showAlertConfirmation(
+                    "Sucesso",
+                    null,
+                    "Compra realizada com Sucesso!");
+            fechaTudo();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Constraints.setTextFieldInteger(txtSenhaCredito);
+        Constraints.setTextFieldMaxLength(txtSenhaCredito, 6);
+        Constraints.setTextFieldLetters(txtBandeiraCredito);
+        Constraints.setTextFieldInteger(txtVencimentoCredito);
+        Constraints.setTextFieldMaxLength(txtVencimentoCredito, 2);
+
+        Constraints.setTextFieldDouble(idTxtValor);
+
+        Constraints.setTextFieldInteger(txtSenhaDebito);
+        Constraints.setTextFieldMaxLength(txtSenhaDebito, 6);
+        Constraints.setTextFieldLetters(txtBandeiraDebito);
+        Constraints.setTextFieldDouble(txtLimiteDebito);
+
+        Constraints.setTextFieldDouble(idTxtValorDebito);
+
     }
 }

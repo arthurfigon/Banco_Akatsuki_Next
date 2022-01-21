@@ -1,6 +1,7 @@
 package br.com.next.projetobanconext.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Apolice {
 
@@ -8,12 +9,12 @@ public class Apolice {
 
     private String id;
     private double valorApolice;
-    private String descricaoCondicoes;
+    private List<String> descricaoCondicoes;
     private Seguro seguro = new Seguro();
     private Date DataAssinatura;
     private Date DataCarencia;
 
-    public Apolice(String id, double valorApolice, String descricaoCondicoes, Seguro seguro, Date dataAssinatura, Date dataCarencia) {
+    public Apolice(String id, double valorApolice, List<String> descricaoCondicoes, Seguro seguro, Date dataAssinatura, Date dataCarencia) {
         this.id = id;
         this.valorApolice = valorApolice;
         this.descricaoCondicoes = descricaoCondicoes;
@@ -38,11 +39,19 @@ public class Apolice {
         this.valorApolice = valorApolice;
     }
 
-    public String getDescricaoCondicoes() {
+    public static long getNumeroApolices() {
+        return numeroApolices;
+    }
+
+    public static void setNumeroApolices(long numeroApolices) {
+        Apolice.numeroApolices = numeroApolices;
+    }
+
+    public List<String> getDescricaoCondicoes() {
         return descricaoCondicoes;
     }
 
-    public void setDescricaoCondicoes(String descricaoCondicoes) {
+    public void setDescricaoCondicoes(List<String> descricaoCondicoes) {
         this.descricaoCondicoes = descricaoCondicoes;
     }
 

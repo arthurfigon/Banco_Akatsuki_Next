@@ -13,14 +13,18 @@
       <AnchorPane fx:id="idPane" layoutX="24.0" layoutY="90.0" prefHeight="284.0" prefWidth="412.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2; -fx-border-radius: 10;">
          <children>
             <Label fx:id="idLbSeguro" layoutX="23.0" layoutY="30.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Seguro" />
-            <Label fx:id="idLbValor" layoutX="23.0" layoutY="66.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor por Ano" />
-            <Label fx:id="idLbRegras" layoutX="23.0" layoutY="103.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Regras" />
+            <Label fx:id="idLbValor" layoutX="28.0" layoutY="86.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor por Ano" />
             <ImageView fitHeight="41.0" fitWidth="153.0" layoutX="23.0" layoutY="212.0" onMouseClicked="#confirmarSeguro" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Comprar.png" />
                </image>
             </ImageView>
             <TextField fx:id="idTxfAnos" layoutX="21.0" layoutY="142.0" promptText="Quantidade de anos" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <ImageView onMouseClicked="#receberSeguro" fitHeight="41.0" fitWidth="165.0" layoutX="273.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Receber.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <ImageView fitHeight="41.0" fitWidth="165.0" layoutX="376.0" layoutY="37.0" onMouseClicked="#atualizarLista" pickOnBounds="true" preserveRatio="true">

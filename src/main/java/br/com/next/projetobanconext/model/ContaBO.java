@@ -25,7 +25,7 @@ public class ContaBO{
 
     public String consultarConta(){
         return "Id: "+conta.getIdConta()+"\nCPF: "+conta.getCliente().getCpf()+"\nNome: "+conta.getCliente().getNome()+
-                "\nNumero da Conta: "+conta.getNumero()+"\nSaldo: R$ "+conta.getSaldo()+ "\nTipo do Cliente: "+conta.getCliente().getTipo();
+                "\nSaldo: R$ "+conta.getSaldo()+ "\nTipo do Cliente: "+conta.getCliente().getTipo();
     }
 
     public boolean transferir(double valor, ContaBO externa){
@@ -96,7 +96,6 @@ public class ContaBO{
         conta.setSaldo(0.0);
         conta.setSenha(senha);
         conta.setCliente(cliente);
-        conta.setNumero(setNumeroRandom());
         conta.setTipoConta(tipoConta);
 
         if(tipoConta.equals(TipoConta.CORRENTE)){
@@ -105,25 +104,6 @@ public class ContaBO{
             conta.setTaxa(0.0003);
         }
         BancoDeDados.insereConta(this.conta);
-    }
-
-    private String setNumeroRandom(){
-        Random random = new Random();
-        String novoNumero = "";
-        int numeroDaVez = 0;
-        for(int i = 0; i < 4; i++){
-            numeroDaVez = random.nextInt(10000);
-            if(numeroDaVez<10){
-                novoNumero += "000";
-            }else if(numeroDaVez<100){
-                novoNumero += "00";
-            }else if(numeroDaVez<1000){
-                novoNumero += "0";
-            }
-            novoNumero += String.valueOf(numeroDaVez);
-            novoNumero += " ";
-        }
-        return novoNumero.strip();
     }
 
     public void sacar(double valor){

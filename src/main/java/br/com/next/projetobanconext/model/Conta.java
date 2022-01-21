@@ -6,7 +6,6 @@ import java.util.Date;
 public class Conta{
     private long idConta;
     private double saldo;
-    private String numero;
     private String senha;
     private Cliente cliente = new Cliente();
     private TipoConta tipoConta;
@@ -71,14 +70,6 @@ public class Conta{
 
     public void setTipoConta(TipoConta tipoConta) {
         this.tipoConta = tipoConta;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
 
     public long getIdConta() {

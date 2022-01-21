@@ -24,7 +24,7 @@
             <Font name="HemiHeadRg-BoldItalic" size="21.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="436.0" onMouseClicked="#onBtDebitoAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="452.0" onMouseClicked="#onBtDebitoAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Débito.png" />
          </image>
@@ -55,8 +55,8 @@
             <TextField fx:id="txtSenhaCredito" layoutX="16.0" layoutY="41.0" prefHeight="41.0" prefWidth="109.0" promptText="123456" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
             <Label layoutX="17.0" layoutY="82.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Bandeira:" />
             <TextField fx:id="txtBandeiraCredito" layoutX="17.0" layoutY="109.0" prefHeight="41.0" prefWidth="192.0" promptText="VISA" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
-            <Label layoutX="19.0" layoutY="150.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Data Vencimento:" />
-            <TextField fx:id="txtVencimentoCredito" layoutX="19.0" layoutY="177.0" prefHeight="41.0" prefWidth="80.0" promptText="11/02" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <Label layoutX="19.0" layoutY="150.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Dia Vencimento:" />
+            <TextField fx:id="txtVencimentoCredito" layoutX="19.0" layoutY="177.0" prefHeight="41.0" prefWidth="80.0" promptText="11" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
             <ImageView fitHeight="48.0" fitWidth="123.0" layoutX="17.0" layoutY="235.0" onMouseClicked="#onBtCadastrarCreditoAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Cadastrar.png" />
@@ -82,44 +82,65 @@
       <AnchorPane fx:id="idPaneAcessarCredito" layoutX="247.0" layoutY="249.0" prefHeight="319.0" prefWidth="396.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2; -fx-border-radius: 7;" visible="false">
          <children>
             <Label fx:id="idLabelValorFaturaCredito" layoutX="26.0" layoutY="41.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor Fatura:" />
+            <Label fx:id="idLabelLimiteCredito" layoutX="25.0" layoutY="88.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Limite:" />
             <Label fx:id="idLabelBandeiraCredito" layoutX="25.0" layoutY="137.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Bandeira:" />
             <Label fx:id="idLabelDataVencimentoCredito" layoutX="25.0" layoutY="187.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="DV:" />
+            <Label layoutX="25.0" layoutY="239.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Status: Ativado" />
             <ImageView fx:id="idBtBloquearCredito" fitHeight="48.0" fitWidth="123.0" layoutX="248.0" layoutY="230.0" onMouseClicked="#onBtBloquearCreditoAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Bloquear.png" />
                </image>
             </ImageView>
-            <Label layoutX="25.0" layoutY="239.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Status: Ativado" />
-            <Label fx:id="idLabelLimiteCredito" layoutX="25.0" layoutY="88.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Limite:" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="idPaneAcessarDebito" layoutX="247.0" layoutY="249.0" prefHeight="319.0" prefWidth="396.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2; -fx-border-radius: 7;" visible="false">
          <children>
+            <Label fx:id="idLabelLimiteDebito" layoutX="23.0" layoutY="41.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Limite:" />
             <Label fx:id="idLabelBandeiraDebito" layoutX="23.0" layoutY="137.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Bandeira:" />
+            <Label layoutX="24.0" layoutY="239.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Status: Ativado" />
             <ImageView fx:id="idBtBloquearDebito" fitHeight="48.0" fitWidth="123.0" layoutX="248.0" layoutY="231.0" onMouseClicked="#onBtBloquearDebitoAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Bloquear.png" />
                </image>
             </ImageView>
-            <Label layoutX="24.0" layoutY="239.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Status: Ativado" />
-            <Label fx:id="idLabelLimiteDebito" layoutX="23.0" layoutY="41.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Limite:" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="idPaneCompraCredito" layoutX="278.0" layoutY="279.0" prefHeight="264.0" prefWidth="358.0" style="-fx-border-color: #d0d0d0; -fx-border-radius: 10; -fx-border-width: 2;" visible="false">
          <children>
-            <Label layoutX="23.0" layoutY="107.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor:">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="idTxtValor" layoutX="23.0" layoutY="134.0" promptText="10,00" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
             <Label layoutX="23.0" layoutY="28.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Produto:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
             <TextField fx:id="idTxtNomeProduto" layoutX="23.0" layoutY="55.0" promptText="Nome do Produto" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <Label layoutX="23.0" layoutY="107.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idTxtValor" layoutX="23.0" layoutY="134.0" promptText="10,00" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
             <ImageView fitHeight="46.0" fitWidth="176.0" layoutX="23.0" layoutY="192.0" onMouseClicked="#onBtConfirmarCompraAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Comprar.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="idPaneCompraDebito" layoutX="288.0" layoutY="289.0" prefHeight="264.0" prefWidth="358.0" style="-fx-border-color: #d0d0d0; -fx-border-radius: 10; -fx-border-width: 2;" visible="false">
+         <children>
+            <Label layoutX="23.0" layoutY="28.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Produto:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idTxtNomeProdutoDebito" layoutX="23.0" layoutY="55.0" promptText="Nome do Produto" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <Label layoutX="23.0" layoutY="107.0" styleClass="checkBox" stylesheets="@fonts/Fonts.css" text="Valor:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idTxtValorDebito" layoutX="23.0" layoutY="134.0" promptText="10,00" styleClass="textPadrao" stylesheets="@fonts/Fonts.css" />
+            <ImageView fitHeight="46.0" fitWidth="176.0" layoutX="23.0" layoutY="192.0" onMouseClicked="#onBtPagarCompraDebito" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/Comprar.png" />
                </image>
@@ -129,6 +150,11 @@
       <ImageView fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="392.0" onMouseClicked="#onBtSegurosAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Seguros.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="102.0" layoutX="69.0" layoutY="526.0" onMouseClicked="#onBtComprarDebitoAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Comprar.png" />
          </image>
       </ImageView>
    </children>

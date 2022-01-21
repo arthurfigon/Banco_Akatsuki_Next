@@ -33,7 +33,7 @@ public class CartaoCredito extends Cartao{
     }
 
     public String getDateString(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd");
         return sdf.format(this.dataVencimento);
     }
 

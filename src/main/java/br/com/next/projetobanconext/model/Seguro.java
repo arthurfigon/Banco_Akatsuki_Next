@@ -1,15 +1,17 @@
 package br.com.next.projetobanconext.model;
 
+import java.util.List;
+
 public class Seguro {
     private String id;
     private String nome;
-    private String regras;
+    private List<String> regras;
     private double valorAno;
 
     public Seguro() {
     }
 
-    public Seguro(String id, String nome, String regras, double valor) {
+    public Seguro(String id, String nome, List<String> regras, double valor) {
         this.id = id;
         this.nome = nome;
         this.regras = regras;
@@ -45,11 +47,11 @@ public class Seguro {
         this.nome = nome;
     }
 
-    public String getRegras() {
+    public List<String> getRegras() {
         return regras;
     }
 
-    public void setRegras(String regras) {
+    public void setRegras(List<String> regras) {
         this.regras = regras;
     }
 }

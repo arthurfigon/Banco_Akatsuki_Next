@@ -6,6 +6,7 @@ import br.com.next.projetobanconext.model.Conta;
 import br.com.next.projetobanconext.model.ContaBO;
 import br.com.next.projetobanconext.utils.Alerts;
 import br.com.next.projetobanconext.utils.BancoDeDados;
+import br.com.next.projetobanconext.utils.Constraints;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,8 +31,6 @@ public class MenuLogadoController implements Initializable {
     public ImageView btAplicar;
     public Label labelContaDestino;
     public ImageView btAtualizar;
-    public Label idNomeCartao;
-    public Label idNumeroCartao;
     public Label idTipoCliente;
     public Label idTipoConta;
     private boolean depositar = true;
@@ -100,8 +99,6 @@ public class MenuLogadoController implements Initializable {
     }
 
     public void atualizaDados(){
-        idNomeCartao.setText(Application.getConta().getCliente().getNome());
-        idNumeroCartao.setText(Application.getConta().getNumero());
         labelSaldo.setText("R$ "+String.valueOf(Application.getConta().getSaldo()));
         idTipoCliente.setText(Application.getConta().getCliente().getTipo().name());
         idTipoConta.setText("Conta "+Application.getConta().getTipoConta().name());
@@ -132,6 +129,9 @@ public class MenuLogadoController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         listConta = BancoDeDados.returnTodasContas();
+
+        Constraints.setTextFieldDouble(txtValor);
+
         observableList = FXCollections.observableList(listConta);
         contaComboBox.setItems(observableList);
     }
