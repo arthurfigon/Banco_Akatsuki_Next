@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="520.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to top, #a2a2a2, #494949); -fx-border-color: white; -fx-border-width: 2;" styleClass="anchor" stylesheets="@images/Fundo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.MenuLogadoController">
+<AnchorPane prefHeight="580.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to top, #a2a2a2, #494949); -fx-border-color: white; -fx-border-width: 2;" styleClass="anchor" stylesheets="@images/Fundo.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.next.projetobanconext.controller.MenuLogadoController">
    <children>
       <Label fx:id="labelSaldo" alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="33.0" layoutY="112.0" nodeOrientation="RIGHT_TO_LEFT" stylesheets="@fonts/Fonts.css" text="R$ 0.0" textAlignment="RIGHT" textFill="#d0d0d0">
          <font>
@@ -35,7 +35,7 @@
             <Image url="@images/Transferir.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="127.0" layoutX="33.0" layoutY="435.0" onMouseClicked="#deslogar" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="127.0" layoutX="33.0" layoutY="503.0" onMouseClicked="#deslogar" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Sair.png" />
          </image>
@@ -84,6 +84,11 @@
       <ImageView fitHeight="32.0" fitWidth="77.0" layoutX="34.0" layoutY="184.0" onMouseClicked="#atualizaDados" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Atualizar.png" />
+         </image>
+      </ImageView>
+      <ImageView onMouseClicked="#aplicarTaxasContas" fitHeight="47.0" fitWidth="171.0" layoutX="33.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Taxas.png"/>
          </image>
       </ImageView>
    </children>
